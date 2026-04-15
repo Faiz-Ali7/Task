@@ -8,7 +8,7 @@ A pixel-perfect, highly responsive dashboard built with **Vite**, **React**, **Z
   - **Desktop**: Three-column grid with persistent sidebar and interactive panels.
   - **Mobile/Tablet**: Implements a **Mobile Drawer** for global navigation and a **Tabbed Content Switcher** (Projects, Leaderboard, Notes) to maximize screen efficiency.
 - **State Management**: Centralized global state using **Zustand**, featuring selective selectors to minimize re-renders.
-- **API Integration**: fully integrated with a mock API (persistent `db.json` via json-server).
+- **API Simulation**: Fully integrated with a robust local state simulation (Zustand) that mimics the original `db.json` dataset.
 - **Rich Animations**: Fluid transitions, pill-tab switching animations, and interactive progress bars powered by **Framer Motion**.
 - **Performance Optimized**: 
   - **Lazy Loading**: sidebar panels are loaded on demand.
@@ -31,7 +31,7 @@ A pixel-perfect, highly responsive dashboard built with **Vite**, **React**, **Z
 - **State**: Zustand
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **Mock API**: json-server
+- **Mock API**: Local Simulation (Zustand based)
 - **Styles**: Vanilla CSS (TailwindCSS for layout utilities)
 
 ## 🏗️ State Management Approach
@@ -41,13 +41,7 @@ I opted for **Zustand** due to its minimal boilerplate and exceptional performan
 2. **Entity Management**: synced state for projects, the leaderboard, and the user profile.
 3. **UI State**: tracking active tabs (global and mobile-specific) and selection persistence.
 
-## 🔌 API Integration
-
-The application interacts with a mock backend providing the following endpoints:
-- `GET /projects`: Populates the main project feed.
-- `GET /leaderboard`: Retrieves ranked competitor data.
-- `GET /user`: Syncs the authenticated user's XP, level, and points.
-- `POST /notes`: Persists progress updates for specifically selected projects.
+- `Notes`: Progress updates are simulated and persisted in local state for the duration of the session.
 
 ## 📦 Setup & Running
 
@@ -55,11 +49,7 @@ The application interacts with a mock backend providing the following endpoints:
    ```bash
    npm install
    ```
-2. **Start Mock API**:
-   ```bash
-   npx json-server --watch db.json --port 3001
-   ```
-3. **Start Dev Server**:
+2. **Start Dev Server**:
    ```bash
    npm run dev
    ```
