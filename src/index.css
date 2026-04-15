@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --color-bg: #0b0e14;
+  --color-surface: #161b22;
+  --color-surface-hover: #1c2128;
+  --color-accent-primary: #7c3aed;
+  --color-accent-secondary: #0ea5e9;
+  --color-text-primary: #f0f6fc;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #484f58;
+  --color-border: #30363d;
+  --color-success: #238636;
+  --color-error: #f85149;
+
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
+  --header-height: 80px;
+  --sidebar-width: 260px;
+}
+
+@media (max-height: 700px) {
+  :root {
+    --header-height: 64px;
+  }
+}
+
+
+@layer base {
+  body {
+    @apply bg-bg text-text-primary antialiased overflow-hidden font-sans;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-xl border border-border rounded-2xl;
+  }
+  
+  .glass-card {
+    @apply bg-surface border border-border rounded-xl transition-all duration-300;
+  }
+}
+
+/* Custom scrollbar to keep the "premium" feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
